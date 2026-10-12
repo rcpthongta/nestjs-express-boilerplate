@@ -16,6 +16,10 @@
     "node": "^24",
     "npm": "^11"
   },
+  "scripts": {
+    "lint": "eslint **\\*.{cjs,cts,js,json,md,mjs,mts,ts,yaml,yml}",
+    "lint:fix": "eslint --fix **\\*.{cjs,cts,js,json,md,mjs,mts,ts,yaml,yml}"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
