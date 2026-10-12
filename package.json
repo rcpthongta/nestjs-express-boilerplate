@@ -17,13 +17,34 @@
     "npm": "^11"
   },
   "scripts": {
+    "build": "cross-env NODE_ENV=development nest build",
+    "build:staging": "cross-env NODE_ENV=staging nest build",
+    "build:production": "cross-env NODE_ENV=production nest build",
+    "dev": "cross-env NODE_ENV=development nest start -w",
+    "dev:debug": "cross-env NODE_ENV=development nest start -d -w",
     "lint": "eslint **\\*.{cjs,cts,js,json,md,mjs,mts,ts,yaml,yml}",
     "lint:fix": "eslint --fix **\\*.{cjs,cts,js,json,md,mjs,mts,ts,yaml,yml}"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.2.7",
+    "@nestjs/core": "^11.2.7",
+    "@nestjs/platform-express": "^11.2.7",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
+    "@nestjs/cli": "^11.0.24",
+    "@nestjs/schematics": "^11.1.0",
+    "@swc/cli": "^0.8.1",
+    "@swc/core": "^1.16.18",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
     "@types/node": "^24.19.0",
+    "@types/source-map-support": "^0.5.10",
+    "copy-webpack-plugin": "^14.0.0",
+    "cross-env": "^10.1.0",
     "eslint": "^10.12.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsonc": "^3.4.2",
@@ -32,7 +53,11 @@
     "eslint-plugin-sonarjs": "^4.2.2",
     "eslint-plugin-yml": "^3.8.1",
     "globals": "^17.13.0",
+    "source-map-support": "^0.5.21",
+    "swc-loader": "^0.2.7",
+    "terser-webpack-plugin": "^5.6.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.71.1"
+    "typescript-eslint": "^8.71.1",
+    "webpack": "^5.111.1"
   }
 }
