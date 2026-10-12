@@ -1,4 +1,7 @@
 {
+  "[javascript][json][markdown][typescript][yaml]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   "cSpell.allowCompoundWords": true,
   "cSpell.ignoreRegExpList": [
     "/[\\u0E00-\\u0E7F]/g"
@@ -6,6 +9,18 @@
   "cSpell.language": "en,en-US",
   "cSpell.words": [
     "rcpthongta"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "markdown",
+    "typescript",
+    "yaml"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
