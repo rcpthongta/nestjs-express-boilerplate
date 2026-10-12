@@ -1,0 +1,30 @@
+{
+  "languages": {
+    "JavaScript": {
+      "language_servers": ["vtsls", "eslint"]
+    },
+    "TypeScript": {
+      "language_servers": ["vtsls", "eslint"]
+    },
+    "JSON": {
+      "language_servers": ["json-language-server", "eslint"]
+    },
+    "YAML": {
+      "language_servers": ["yaml-language-server", "eslint"]
+    },
+    "Markdown": {
+      "language_servers": ["eslint"]
+    }
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "onIgnoredFiles": "off"
+      }
+    }
+  },
+  "formatter": {
+    "code_action": "source.fixAll.eslint"
+  },
+  "format_on_save": "on"
+}
