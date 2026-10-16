@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "rootDir": ".",
-    "module": "commonjs",
-    "moduleResolution": "node10",
+    "paths": {
+      "@api": ["./src/app/apis/index.ts"]
+    },
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "moduleDetection": "force",
     "esModuleInterop": true,
     "resolveJsonModule": true,
