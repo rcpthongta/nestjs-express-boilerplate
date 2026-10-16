@@ -17,6 +17,9 @@
     "npm": "^11"
   },
   "scripts": {
+    "prepare": "husky",
+    "precommit": "lint-staged",
+    "prepush": "npm run test:unit-coverage",
     "build": "cross-env NODE_ENV=development nest build",
     "build:staging": "cross-env NODE_ENV=staging nest build",
     "build:production": "cross-env NODE_ENV=production nest build",
