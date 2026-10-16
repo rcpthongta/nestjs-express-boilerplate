@@ -15,7 +15,7 @@ const tsFiles = ["**/*.ts", "**/*.cts", "**/*.mts"];
 const sourceFiles = [...jsFiles, ...tsFiles];
 
 export default eslint.defineConfig(
-  eslint.globalIgnores(["**/dist/*", "**/node_modules/*", "**/.npmrc", "**/package-lock.json"]),
+  eslint.globalIgnores(["**/dist/*", "**/coverage/*", "**/node_modules/*", "**/.npmrc", "**/package-lock.json"]),
   {
     languageOptions: {
       globals: {
