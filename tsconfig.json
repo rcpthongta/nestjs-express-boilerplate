@@ -2,7 +2,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@api": ["./src/app/apis/index.ts"]
+      "@api": ["./src/app/apis/index.ts"],
+      "@environment": ["./src/app/environments/index.ts"],
+      "@metadata": ["./src/metadata.ts"]
     },
     "module": "preserve",
     "moduleResolution": "bundler",
