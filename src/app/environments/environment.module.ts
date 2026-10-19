@@ -1,9 +1,11 @@
-import { Global, Module } from "@nestjs/common";
+import { Global, Module, OnApplicationBootstrap } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
+
+import process from "node:process";
 
 import { environment } from "./environment.loader";
 import { EnvironmentService } from "./environment.service";
-import { validateEnvironment } from "./environment.validation";
+import { environmentValidate } from "./environment.validation";
 
 @Global()
 @Module({
@@ -11,11 +13,14 @@ import { validateEnvironment } from "./environment.validation";
     ConfigModule.forRoot({
       isGlobal: false,
       ignoreEnvFile: true,
-      validate: validateEnvironment,
       load: [environment]
     })
   ],
   providers: [EnvironmentService],
   exports: [EnvironmentService]
 })
-export class EnvironmentModule {}
+export class EnvironmentModule implements OnApplicationBootstrap {
+  public onApplicationBootstrap(): void {
+    environmentValidate(process.env);
+  }
+}

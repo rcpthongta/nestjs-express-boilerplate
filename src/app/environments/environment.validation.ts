@@ -5,7 +5,7 @@ import { EnvironmentSchemaOptions } from "./interfaces/environment-schema-option
 
 import { environmentSchema } from "./environment.schema";
 
-export function validateEnvironment(env: Record<string, unknown>): EnvironmentSchemaOptions {
+export function environmentValidate(env: Record<string, unknown>): EnvironmentSchemaOptions {
   const { error, value }: Joi.ValidationResult<EnvironmentSchemaOptions> = environmentSchema.validate(env, {
     allowUnknown: true
   });

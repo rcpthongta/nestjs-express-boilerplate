@@ -1,7 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 
-import { EnvironmentServerOptions } from "./interfaces";
+import { EnvironmentLoggingOptions } from "./interfaces/environment-logging-options.interface";
+import { EnvironmentServerOptions } from "./interfaces/environment-server-options.interface";
 
 @Injectable()
 export class EnvironmentService {
@@ -17,5 +18,9 @@ export class EnvironmentService {
 
   public get server(): EnvironmentServerOptions {
     return this.config.getOrThrow("server");
+  }
+
+  public get logging(): EnvironmentLoggingOptions {
+    return this.config.getOrThrow("logging");
   }
 }
