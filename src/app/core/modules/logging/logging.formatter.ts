@@ -102,7 +102,7 @@ export class LoggingFormatter {
   }
 
   public skipMessageByContexts(opts: SkipMessageOptions): winston.Logform.Format {
-    const contexts: Set<string> = new Set<string>(opts.list);
+    const contexts: Set<string> = new Set(opts.list);
 
     return winston.format(
       (transformable: winston.Logform.TransformableInfo): winston.Logform.TransformableInfo | boolean => {
@@ -112,7 +112,7 @@ export class LoggingFormatter {
   }
 
   public skipMessageByLevels(opts: SkipMessageOptions): winston.Logform.Format {
-    const levels: Set<string> = new Set<string>(opts.list.map((level: string): string => level.toLowerCase().trim()));
+    const levels: Set<string> = new Set(opts.list.map((level: string): string => level.toLowerCase().trim()));
 
     return winston.format(
       (transformable: winston.Logform.TransformableInfo): winston.Logform.TransformableInfo | boolean => {
