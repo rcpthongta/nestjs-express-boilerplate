@@ -1,4 +1,4 @@
-import { hasText } from "@rcpthongta/string-utils";
+import { defaultIfBlank, hasText } from "@rcpthongta/string-utils";
 
 import process from "node:process";
 
@@ -14,10 +14,20 @@ export function environment(): EnvironmentOptions {
     server: {
       port: Number.parseInt(process.env.SERVER_PORT ?? "3000", 10)
     },
+    security: {
+      request: {
+        json: {
+          limit: defaultIfBlank(process.env.SECURITY_REQUEST_JSON_LIMIT, "100kb")
+        },
+        urlencoded: {
+          limit: defaultIfBlank(process.env.SECURITY_REQUEST_URLENCODED_LIMIT, "100kb")
+        }
+      }
+    },
     logging: {
       level: level,
       timestamp: {
-        format: process.env.LOGGING_TIMESTAMP_FORMAT ?? "MM/DD/YYYY HH:mm:ss A"
+        format: defaultIfBlank(process.env.LOGGING_TIMESTAMP_FORMAT, "MM/DD/YYYY HH:mm:ss A")
       }
     }
   };

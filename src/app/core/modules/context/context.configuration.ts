@@ -10,8 +10,7 @@ export class ContextConfiguration {
   private static readonly X_REQUEST_ID: string = "x-request-id";
 
   private generateRequestId(request: Request): string {
-    const header: string | string[] | undefined = request.headers[ContextConfiguration.X_REQUEST_ID];
-    const requestId: string | undefined = Array.isArray(header) ? header[0] : header;
+    const requestId: string | undefined = request.header(ContextConfiguration.X_REQUEST_ID);
 
     return hasText(requestId) ? requestId.trim() : nanoid();
   }
