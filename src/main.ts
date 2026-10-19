@@ -4,8 +4,6 @@ import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { ExpressAdapter, NestExpressApplication } from "@nestjs/platform-express";
 
-import responseTime from "response-time";
-
 import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
 
 import { AppModule } from "./app/app.module";
@@ -17,13 +15,20 @@ class Bootstrap {
     try {
       const adapter: ExpressAdapter = new ExpressAdapter();
       const application: NestExpressApplication = await NestFactory.create(AppModule, adapter, {
+        abortOnError: false,
         bufferLogs: true,
-        abortOnError: false
+        bodyParser: false
       });
       const environment: EnvironmentService = application.get(EnvironmentService);
 
       application.useLogger(application.get(WINSTON_MODULE_NEST_PROVIDER));
-      application.use(responseTime());
+      application.useBodyParser("json", {
+        limit: environment.security.request.json.limit
+      });
+      application.useBodyParser("urlencoded", {
+        limit: environment.security.request.urlencoded.limit,
+        extended: true
+      });
 
       await application.listen(environment.server.port);
 
