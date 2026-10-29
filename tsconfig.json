@@ -3,6 +3,8 @@
     "rootDir": ".",
     "paths": {
       "@api": ["./src/app/apis/index.ts"],
+      "@common": ["./src/app/common/index.ts"],
+      "@dto": ["./src/app/dto/index.ts"],
       "@environment": ["./src/app/environments/index.ts"],
       "@metadata": ["./src/metadata.ts"]
     },
