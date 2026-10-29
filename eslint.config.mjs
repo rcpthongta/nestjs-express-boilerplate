@@ -44,6 +44,15 @@ export default eslint.defineConfig(
       "@typescript-eslint": typescript.plugin
     },
     extends: [typescript.configs.recommended],
+    rules: {
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          prefer: "type-imports",
+          fixStyle: "inline-type-imports"
+        }
+      ]
+    },
     languageOptions: {
       parser: typescript.parser,
       parserOptions: {
