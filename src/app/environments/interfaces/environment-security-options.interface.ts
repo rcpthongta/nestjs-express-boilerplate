@@ -1,5 +1,5 @@
-export interface EnvironmentSecurityOptions {
-  readonly request: EnvironmentSecurityRequestOptions;
+export interface EnvironmentSecurityRequestLimitOptions {
+  readonly limit: string;
 }
 
 export interface EnvironmentSecurityRequestOptions {
@@ -7,6 +7,12 @@ export interface EnvironmentSecurityRequestOptions {
   readonly urlencoded: EnvironmentSecurityRequestLimitOptions;
 }
 
-export interface EnvironmentSecurityRequestLimitOptions {
-  readonly limit: string;
+export interface EnvironmentSecurityThrottlerOptions {
+  readonly ttl: number;
+  readonly limit: number;
+}
+
+export interface EnvironmentSecurityOptions {
+  readonly request: EnvironmentSecurityRequestOptions;
+  readonly throttler: EnvironmentSecurityThrottlerOptions;
 }
