@@ -2,7 +2,12 @@
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
   "compilerOptions": {
-    "builder": "webpack",
+    "builder": {
+      "type": "rspack",
+      "options": {
+        "configPath": "rspack.config.js"
+      }
+    },
     "deleteOutDir": true
   }
 }
