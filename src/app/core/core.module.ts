@@ -11,6 +11,7 @@ import { ContextConfiguration } from "./modules/context/context.configuration";
 import { ContextModule } from "./modules/context/context.module";
 import { LoggingConfiguration } from "./modules/logging/logging.configuration";
 import { LoggingModule } from "./modules/logging/logging.module";
+import { RateLimitModule } from "./modules/rate-limit/rate-limit.module";
 import { ResponseWrapperModule } from "./modules/response-wrapper/response-wrapper.module";
 
 @Module({
@@ -25,6 +26,7 @@ import { ResponseWrapperModule } from "./modules/response-wrapper/response-wrapp
       imports: [LoggingModule],
       useClass: LoggingConfiguration
     }),
+    RateLimitModule,
     ResponseWrapperModule
   ]
 })
