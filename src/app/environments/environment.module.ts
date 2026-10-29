@@ -1,4 +1,4 @@
-import { Global, Module, OnApplicationBootstrap } from "@nestjs/common";
+import { Global, Module, OnModuleInit } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 
 import process from "node:process";
@@ -19,8 +19,8 @@ import { environmentValidate } from "./environment.validation";
   providers: [EnvironmentService],
   exports: [EnvironmentService]
 })
-export class EnvironmentModule implements OnApplicationBootstrap {
-  public onApplicationBootstrap(): void {
+export class EnvironmentModule implements OnModuleInit {
+  public onModuleInit(): void {
     environmentValidate(process.env);
   }
 }

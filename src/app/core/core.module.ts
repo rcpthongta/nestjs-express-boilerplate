@@ -11,6 +11,7 @@ import { ContextConfiguration } from "./modules/context/context.configuration";
 import { ContextModule } from "./modules/context/context.module";
 import { LoggingConfiguration } from "./modules/logging/logging.configuration";
 import { LoggingModule } from "./modules/logging/logging.module";
+import { ResponseWrapperModule } from "./modules/response-wrapper/response-wrapper.module";
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { LoggingModule } from "./modules/logging/logging.module";
     WinstonModule.forRootAsync({
       imports: [LoggingModule],
       useClass: LoggingConfiguration
-    })
+    }),
+    ResponseWrapperModule
   ]
 })
 export class CoreModule implements NestModule {
