@@ -1,6 +1,6 @@
 import { TestBed } from "@suites/unit";
 
-import { beforeAll, describe, test, TestContext } from "vitest";
+import { beforeAll, describe, test, type TestContext } from "vitest";
 
 import { ExampleService } from "./example.service";
 

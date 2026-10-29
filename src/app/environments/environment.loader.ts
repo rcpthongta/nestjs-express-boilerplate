@@ -2,7 +2,7 @@ import { defaultIfBlank, hasText } from "@rcpthongta/string-utils";
 
 import process from "node:process";
 
-import { EnvironmentOptions } from "./interfaces/environment-options.interface";
+import type { EnvironmentOptions } from "./interfaces/environment-options.interface";
 
 export function environment(): EnvironmentOptions {
   const levels: Set<string> = new Set(["fatal", "error", "warn", "http", "info", "verbose", "debug"]);

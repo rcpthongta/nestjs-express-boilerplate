@@ -1,6 +1,6 @@
-import { EnvironmentLoggingOptions } from "./environment-logging-options.interface";
-import { EnvironmentSecurityOptions } from "./environment-security-options.interface";
-import { EnvironmentServerOptions } from "./environment-server-options.interface";
+import type { EnvironmentLoggingOptions } from "./environment-logging-options.interface";
+import type { EnvironmentSecurityOptions } from "./environment-security-options.interface";
+import type { EnvironmentServerOptions } from "./environment-server-options.interface";
 
 export interface EnvironmentOptions {
   readonly profile: string;

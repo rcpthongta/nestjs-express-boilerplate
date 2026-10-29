@@ -1,7 +1,7 @@
-import * as Joi from "joi";
+import type * as Joi from "joi";
 
 import { InvalidEnvironmentException } from "./exceptions/invalid-environment.exception";
-import { EnvironmentSchemaOptions } from "./interfaces/environment-schema-options.interface";
+import type { EnvironmentSchemaOptions } from "./interfaces/environment-schema-options.interface";
 
 import { environmentSchema } from "./environment.schema";
 

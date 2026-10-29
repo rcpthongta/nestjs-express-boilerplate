@@ -2,10 +2,12 @@ import { EnvironmentService } from "@environment";
 
 import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import { ExpressAdapter, NestExpressApplication } from "@nestjs/platform-express";
+import type { NestExpressApplication } from "@nestjs/platform-express";
+import { ExpressAdapter } from "@nestjs/platform-express";
 
 import process from "node:process";
 
+import { useContainer } from "class-validator";
 import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
 
 import { AppModule } from "./app/app.module";
@@ -34,6 +36,8 @@ class Bootstrap {
       });
 
       const environment: EnvironmentService = application.get(EnvironmentService);
+
+      useContainer(application.select(AppModule), { fallbackOnErrors: true });
 
       application.useLogger(application.get(WINSTON_MODULE_NEST_PROVIDER));
       application.useBodyParser("json", {
