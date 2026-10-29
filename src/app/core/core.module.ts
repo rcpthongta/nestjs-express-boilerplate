@@ -13,6 +13,7 @@ import { LoggingConfiguration } from "./modules/logging/logging.configuration";
 import { LoggingModule } from "./modules/logging/logging.module";
 import { RateLimitModule } from "./modules/rate-limit/rate-limit.module";
 import { ResponseWrapperModule } from "./modules/response-wrapper/response-wrapper.module";
+import { ValidationModule } from "./modules/validation/validation.module";
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ResponseWrapperModule } from "./modules/response-wrapper/response-wrapp
       useClass: LoggingConfiguration
     }),
     RateLimitModule,
+    ValidationModule,
     ResponseWrapperModule
   ]
 })
