@@ -2,7 +2,7 @@ import { Module } from "@nestjs/common";
 import { RouterModule } from "@nestjs/core";
 
 import { ExampleModule } from "./examples/example.module";
-import { RouteNotFoundModule } from "./route-not-fount/route-not-fount.module";
+import { RouteNotFoundModule } from "./route-not-found/route-not-found.module";
 
 @Module({
   imports: [
