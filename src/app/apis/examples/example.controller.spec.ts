@@ -1,6 +1,6 @@
 import { TestBed, type Mocked } from "@suites/unit";
 
-import { beforeAll, describe, test, TestContext } from "vitest";
+import { beforeAll, describe, test, type TestContext } from "vitest";
 
 import { ExampleController } from "./example.controller";
 import { ExampleService } from "./example.service";

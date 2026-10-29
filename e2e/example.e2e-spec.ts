@@ -1,11 +1,11 @@
 import { ExampleModule } from "@api";
 
-import { ExpressAdapter, NestExpressApplication } from "@nestjs/platform-express";
-import { Test, TestingModule } from "@nestjs/testing";
+import { ExpressAdapter, type NestExpressApplication } from "@nestjs/platform-express";
+import { Test, type TestingModule } from "@nestjs/testing";
 
 import supertest from "supertest";
 
-import { afterEach, beforeEach, describe, test, TestContext } from "vitest";
+import { afterEach, beforeEach, describe, test, type TestContext } from "vitest";
 
 describe("Example (E2E)", (): void => {
   let application: NestExpressApplication;
