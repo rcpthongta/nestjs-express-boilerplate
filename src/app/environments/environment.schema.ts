@@ -7,6 +7,8 @@ export const environmentSchema: Joi.ObjectSchema<EnvironmentSchemaOptions> = Joi
   SERVER_PORT: Joi.number().port().required(),
   SECURITY_REQUEST_JSON_LIMIT: Joi.string().allow(""),
   SECURITY_REQUEST_URLENCODED_LIMIT: Joi.string().allow(""),
+  SECURITY_THROTTLER_TTL: Joi.number().integer().min(1).max(2147483647).allow(""),
+  SECURITY_THROTTLER_LIMIT: Joi.number().integer().min(1).allow(""),
   LOGGING_LEVEL: Joi.string().valid("fatal", "error", "warn", "http", "info", "verbose", "debug").required(),
   LOGGING_TIMESTAMP_FORMAT: Joi.string().allow("")
 }).required();

@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 
-import { RouteNotFoundController } from "./route-not-fount.controller";
+import { RouteNotFoundController } from "./route-not-found.controller";
 
 @Module({
   controllers: [RouteNotFoundController]

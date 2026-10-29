@@ -13,6 +13,10 @@ export function environment(): EnvironmentOptions {
       port: Number.parseInt(process.env.SERVER_PORT!, 10)
     },
     security: {
+      throttler: {
+        ttl: Number(defaultIfBlank(process.env.SECURITY_THROTTLER_TTL, "60000")),
+        limit: Number(defaultIfBlank(process.env.SECURITY_THROTTLER_LIMIT, "100"))
+      },
       request: {
         json: {
           limit: defaultIfBlank(process.env.SECURITY_REQUEST_JSON_LIMIT, "100kb")
