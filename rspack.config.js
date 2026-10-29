@@ -1,29 +1,34 @@
+const fs = require("node:fs");
 const path = require("node:path");
 
-const Copy = require("copy-webpack-plugin");
-const Terser = require("terser-webpack-plugin");
+const { CopyRspackPlugin, SwcJsMinimizerRspackPlugin } = require("@rspack/core");
+
+const { jsc } = JSON.parse(fs.readFileSync(path.resolve(__dirname, ".swcrc"), "utf8"));
 
 module.exports = function compile(initial) {
   return {
     ...initial,
     output: {
+      ...initial.output,
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
       clean: true
     },
     target: "node",
-    mode: ["staging", "production"].includes(process.env.NODE_ENV) ? "production" : "development",
+    mode: process.env.NODE_ENV === "development" ? "development" : "production",
     devtool: "source-map",
     module: {
+      ...initial.module,
       rules: [
         {
           test: /\.ts$/,
           exclude: /node_modules/,
           use: {
-            loader: "swc-loader",
+            loader: "builtin:swc-loader",
             options: {
-              sync: true,
-              swcrc: true
+              jsc,
+              sourceMaps: true,
+              minify: false
             }
           }
         }
@@ -32,10 +37,9 @@ module.exports = function compile(initial) {
     optimization: {
       ...initial.optimization,
       minimizer: [
-        new Terser({
+        new SwcJsMinimizerRspackPlugin({
           extractComments: false,
-          parallel: true,
-          terserOptions: {
+          minimizerOptions: {
             compress: {
               passes: 2,
               keep_classnames: true,
@@ -54,7 +58,7 @@ module.exports = function compile(initial) {
     },
     plugins: [
       ...initial.plugins,
-      new Copy({
+      new CopyRspackPlugin({
         patterns: [
           {
             from: "resources",
