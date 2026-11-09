@@ -1,0 +1,24 @@
+# Default line endings
+* text=auto eol=lf
+
+# Images
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.ico  binary
+*.gif  binary
+*.webp binary
+*.avif binary
+
+# Documents
+*.pdf binary
+
+# Archives
+*.zip binary
+
+# Fonts
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
