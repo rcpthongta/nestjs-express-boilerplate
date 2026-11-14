@@ -19,13 +19,19 @@
   },
   "type": "module",
   "scripts": {
+    "prepare": "husky",
+    "precommit": "lint-staged",
     "format": "oxfmt . --check",
     "format:fix": "oxfmt . --write",
     "lint": "npm run format && oxlint .",
     "lint:fix": "npm run format:fix && oxlint . --fix"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@types/node": "^26.6.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.93.0",
     "typescript": "^6.0.3"
