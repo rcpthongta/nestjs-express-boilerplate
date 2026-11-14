@@ -9,6 +9,9 @@ export default defineConfig({
   categories: {
     correctness: "error"
   },
+  options: {
+    typeAware: true
+  },
   overrides: [
     {
       files: ["**/*.{ts,cts,mts}"],
