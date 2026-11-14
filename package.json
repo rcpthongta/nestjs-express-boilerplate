@@ -21,19 +21,39 @@
   "scripts": {
     "prepare": "husky",
     "precommit": "lint-staged",
+    "build": "nest build",
+    "dev": "cross-env NODE_ENV=development nest start -w",
+    "dev:debug": "cross-env NODE_ENV=development nest start -d -w",
     "format": "oxfmt . --check",
     "format:fix": "oxfmt . --write",
     "lint": "npm run format && oxlint .",
     "lint:fix": "npm run format:fix && oxlint . --fix"
   },
+  "dependencies": {
+    "@nestjs/common": "^12.5.0",
+    "@nestjs/core": "^12.5.0",
+    "@nestjs/platform-express": "^12.5.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
+    "@nestjs/cli": "^12.0.13",
+    "@nestjs/schematics": "^12.0.13",
+    "@rspack/core": "^2.3.2",
+    "@swc/cli": "^0.8.2",
+    "@swc/core": "^1.16.22",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
     "@types/node": "^26.6.6",
+    "cross-env": "^10.1.0",
+    "fork-ts-checker-webpack-plugin": "^9.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.93.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }
