@@ -19,6 +19,8 @@
   },
   "type": "module",
   "scripts": {
+    "prepare": "husky",
+    "precommit": "lint-staged",
     "format": "oxfmt . --check",
     "format:fix": "oxfmt . --write",
     "lint": "npm run format && oxlint .",
