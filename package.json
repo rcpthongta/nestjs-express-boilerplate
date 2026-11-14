@@ -18,8 +18,16 @@
     "npm": ">=11.20.0"
   },
   "type": "module",
+  "scripts": {
+    "format": "oxfmt . --check",
+    "format:fix": "oxfmt . --write",
+    "lint": "npm run format && oxlint .",
+    "lint:fix": "npm run format:fix && oxlint . --fix"
+  },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "typescript": "^6.0.3"
   }
 }
